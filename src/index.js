@@ -17,7 +17,7 @@ ReactDOM.render(
     redirectUri={window.location.origin}
   >
     <Helmet>
-      <title>The Sassy Elephants</title>
+      <title>Mentor Matcher</title>
     </Helmet>
     <App />
   </Auth0Provider>,

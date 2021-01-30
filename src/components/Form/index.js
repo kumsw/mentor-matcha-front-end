@@ -14,13 +14,14 @@ import {
 } from "./form-details";
 
 // Parent component of Mentor, Mentee, submit. In here we will take the information from Mentor & Mentee and the submit component will pass the data to our database
+const url = process.env.REACT_APP_BACKEND_URL;
 function Form() {
   const { user, isAuthenticated } = useAuth0();
 
   const [menteeForm, setMenteeForm] = useState("form hide");
   const [mentorForm, setMentorForm] = useState("form hide");
 
-  /* TO REFACTOR (Another time)
+  /* TO REFACTOR 
   
     const [menteeFormValues, setMenteeFormValues] = useState ({})
 
@@ -104,7 +105,7 @@ setMentorFormValues = {...mentorFormValues, userInput}
       guser,
       gemail
     );
-    fetch(`http://localhost:5000/mentee`, {
+    fetch(`${url}/mentee`, {
       method: "post",
       body: JSON.stringify({
         firstName: firstName,
@@ -155,7 +156,7 @@ setMentorFormValues = {...mentorFormValues, userInput}
       guser,
       gemail
     );
-    fetch(`http://localhost:5000/mentor`, {
+    fetch(`${url}/mentor`, {
       method: "post",
       body: JSON.stringify({
         firstName: firstName,
@@ -219,7 +220,10 @@ setMentorFormValues = {...mentorFormValues, userInput}
       <br />
       <br />
       <div className="imgs">
-        <img src="https://cdn.dribbble.com/users/1647667/screenshots/13994154/media/a90aab4e64f4c96cc62b3618c8017be9.jpg" />
+        <img
+          alt="homepage banner"
+          src="https://cdn.dribbble.com/users/1647667/screenshots/13994154/media/a90aab4e64f4c96cc62b3618c8017be9.jpg"
+        />
       </div>
 
       <div className="buttonsDivForm">

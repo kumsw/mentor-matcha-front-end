@@ -19,6 +19,7 @@ function Profile() {
             <img
               className="imgProf"
               width="100%"
+              alt="home page banner"
               src="https://visme.co/blog/wp-content/uploads/2020/02/header-1200.gif"
             />
           </div>

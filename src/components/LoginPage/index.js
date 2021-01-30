@@ -14,6 +14,7 @@ function LoginPage() {
         <div className="loadingDiv">
           <img
             className="lodaingImage"
+            alt="loading animation"
             src="https://media4.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif"
           />
         </div>
@@ -31,6 +32,3 @@ function LoginPage() {
 }
 
 export default LoginPage;
-
-// LogIn page should link to the Apply for programme page.... if user has already applied for programme then display User profile information
-// fetch request from the DB for the id of that USER.

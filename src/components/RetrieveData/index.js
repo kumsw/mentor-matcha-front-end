@@ -5,13 +5,14 @@ import "./styles.css";
 
 // component is working without useEffect because it will only grab all the data.
 // As we add more button (to find your match) then useeffect we will want them to run at different times.
+const url = process.env.REACT_APP_BACKEND_URL;
 function RetrieveData() {
   const [formData, setFormData] = useState([]);
   const [text, setText] = useState("");
   const [formData2, setFormData2] = useState([]);
 
   async function getAllData() {
-    const res = await fetch("http://www.localhost:5000/mentor");
+    const res = await fetch(`${url}/mentor`);
     const data = await res.json();
     console.log(data);
     let payload = data.payload;
@@ -20,7 +21,7 @@ function RetrieveData() {
   }
 
   async function getAllDataMentee() {
-    const res = await fetch("http://www.localhost:5000/mentee");
+    const res = await fetch(`${url}/mentee`);
     const data = await res.json();
     console.log(data);
     let payload = data.payload;
@@ -33,9 +34,7 @@ function RetrieveData() {
 
   // async function to get user input value, hand the value to the api and recieve the myersbriggs matches
   async function matchMB(text) {
-    const res = await fetch(
-      `http://www.localhost:5000/bootcamperMatch?myersBriggs=${text}`
-    );
+    const res = await fetch(`${url}/bootcamperMatch?myersBriggs=${text}`);
     console.log(text);
     const data = await res.json();
     let payload = data.payload;
@@ -51,7 +50,10 @@ function RetrieveData() {
         See your match, who <br /> your mentor's going to be
       </h1>
       <div className="imgs">
-        <img src="https://cdn.dribbble.com/users/1647667/screenshots/10748446/media/46e4cd887fb570b00ed4779244bfb9b6.jpg" />
+        <img
+          alt="form page illustration"
+          src="https://cdn.dribbble.com/users/1647667/screenshots/10748446/media/46e4cd887fb570b00ed4779244bfb9b6.jpg"
+        />
       </div>
       <button
         onClick={() => {
@@ -73,7 +75,6 @@ function RetrieveData() {
       <br />
       <br />
       <div>
-        {/* <p>{quote.name}</p> */}
         <table className="table" id="data-display">
           <thead>
             <th></th>
